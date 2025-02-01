@@ -1,14 +1,14 @@
-'use client'
+"use client"
 
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card"
-import { EyeIcon, EyeOffIcon, GraduationCap } from 'lucide-react'
-import Link from 'next/link'
+import { EyeIcon, EyeOffIcon, GraduationCap } from "lucide-react"
+import Link from "next/link"
 
 export default function AuthPage() {
   const [showPassword, setShowPassword] = useState(false)
@@ -19,7 +19,7 @@ export default function AuthPage() {
   const fadeIn = {
     hidden: { opacity: 0, y: -20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
-    exit: { opacity: 0, y: 20, transition: { duration: 0.3 } }
+    exit: { opacity: 0, y: 20, transition: { duration: 0.3 } },
   }
 
   return (
@@ -46,13 +46,7 @@ export default function AuthPage() {
                   <TabsTrigger value="register">Register</TabsTrigger>
                 </TabsList>
                 <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeTab}
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                    variants={fadeIn}
-                  >
+                  <motion.div key={activeTab} initial="hidden" animate="visible" exit="exit" variants={fadeIn}>
                     <TabsContent value="login">
                       <form>
                         <div className="space-y-4">
@@ -63,11 +57,7 @@ export default function AuthPage() {
                           <div className="space-y-2">
                             <Label htmlFor="password">Password</Label>
                             <div className="relative">
-                              <Input
-                                id="password"
-                                type={showPassword ? "text" : "password"}
-                                required
-                              />
+                              <Input id="password" type={showPassword ? "text" : "password"} required />
                               <Button
                                 type="button"
                                 variant="ghost"
@@ -76,16 +66,14 @@ export default function AuthPage() {
                                 onClick={togglePasswordVisibility}
                                 aria-label={showPassword ? "Hide password" : "Show password"}
                               >
-                                {showPassword ? (
-                                  <EyeOffIcon className="h-4 w-4" />
-                                ) : (
-                                  <EyeIcon className="h-4 w-4" />
-                                )}
+                                {showPassword ? <EyeOffIcon className="h-4 w-4" /> : <EyeIcon className="h-4 w-4" />}
                               </Button>
                             </div>
                           </div>
                         </div>
-                        <Button className="w-full mt-6" type="submit">Login</Button>
+                        <Button className="w-full mt-6" type="submit">
+                          Login
+                        </Button>
                       </form>
                     </TabsContent>
                     <TabsContent value="register">
@@ -102,11 +90,7 @@ export default function AuthPage() {
                           <div className="space-y-2">
                             <Label htmlFor="register-password">Password</Label>
                             <div className="relative">
-                              <Input
-                                id="register-password"
-                                type={showPassword ? "text" : "password"}
-                                required
-                              />
+                              <Input id="register-password" type={showPassword ? "text" : "password"} required />
                               <Button
                                 type="button"
                                 variant="ghost"
@@ -115,11 +99,7 @@ export default function AuthPage() {
                                 onClick={togglePasswordVisibility}
                                 aria-label={showPassword ? "Hide password" : "Show password"}
                               >
-                                {showPassword ? (
-                                  <EyeOffIcon className="h-4 w-4" />
-                                ) : (
-                                  <EyeIcon className="h-4 w-4" />
-                                )}
+                                {showPassword ? <EyeOffIcon className="h-4 w-4" /> : <EyeIcon className="h-4 w-4" />}
                               </Button>
                             </div>
                           </div>
@@ -128,7 +108,9 @@ export default function AuthPage() {
                             <Input id="register-confirm-password" type="password" required />
                           </div>
                         </div>
-                        <Button className="w-full mt-6" type="submit">Register</Button>
+                        <Button className="w-full mt-6" type="submit">
+                          Register
+                        </Button>
                       </form>
                     </TabsContent>
                   </motion.div>
@@ -148,3 +130,4 @@ export default function AuthPage() {
     </div>
   )
 }
+
